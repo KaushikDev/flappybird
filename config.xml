@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns   = "http://www.w3.org/ns/widgets"
+    xmlns:gap   = "http://phonegap.com/ns/1.0"
+    id          = "com.kaushikdev.portfolio"
+    versionCode = "10"
+    version     = "1.0.0" >
+
+<!-- versionCode is optional and Android only -->
+
+  <name>Flappy Bird</name>
+  <platform name="ios" />
+  <platform name="android" />
+  <platform name="winphone" />
+  <description>
+      Retro style Flappy Bird game!!
+  </description>
+
+  <author href="https://kaushikdev.github.io/portfolio" email="piyush.kaushik02@gmail.com">
+      Piyush Kaushik
+  </author>
+<!--   <icon src="ldpi.png" platform="android" qualifier="ldpi" /> -->
+
+  <!-- adding intents -->
+  
+    <access origin="*"/>
+    <!-- Added the following intents to support the removal of whitelist code from base cordova to a plugin -->
+    <!-- Whitelist configuration. Refer to https://cordova.apache.org/docs/en/edge/guide_appdev_whitelist_index.md.html -->
+    <plugin name="cordova-plugin-whitelist" version="1" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+	<allow-intent href="whatsapp:*" />
+	
+	
+	 <!-- adding preferences -->
+	  <preference name="permissions" value="none"/>
+	  <preference name="show-splash-screen-spinner" value="true" />          
+	  <!-- ios: if set to false, the spinner won't appear on the splash screen during app loading -->
+
+<platform name="android">
+	<icon density="hdpi" src="res/mipmap-hdpi/ic_launcher.png" />
+	<icon density="ldpi" src="res/mipmap-ldpi/ic_launcher.png" />
+	<icon density="mdpi" src="res/mipmap-mdpi/ic_launcher.png" />
+	<icon density="xhdpi" src="res/mipmap-xhdpi/ic_launcher.png" />
+	<icon density="xxhdpi" src="res/mipmap-xxhdpi/ic_launcher.png" />
+	<icon density="xxxhdpi" src="res/mipmap-xxxhdpi/ic_launcher.png" />
+	
+</platform>
+
+</widget>
