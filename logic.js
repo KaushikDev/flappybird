@@ -60,18 +60,18 @@ cnv.addEventListener("click", function(event){
             break;
 
         case state.over:
-            let rect = cnv.getBoundingClientRect();
-            let clickX = event.clientX - rect.left;
-            let clickY = event.clientY - rect.top;
+            // let rect = cnv.getBoundingClientRect();
+            // let clickX = event.clientX - rect.left;
+            // let clickY = event.clientY - rect.top;
 
-            console.log("clicked coordinates are : " + clickX, clickY);
-            //checking if click on start button
-            if (clickX >= startBtn.x && clickX <= startBtn.x+startBtn.w && clickY >= startBtn.y && clickY <= startBtn.y + startBtn.h) {
+            // console.log("clicked coordinates are : " + clickX, clickY);
+            // //checking if click on start button
+            // if (clickX >= startBtn.x && clickX <= startBtn.x+startBtn.w && clickY >= startBtn.y && clickY <= startBtn.y + startBtn.h) {
                 state.current = state.getReady;
                 pipes.reset();
                 bird.speedReset();
                 score.reset();
-            }
+            // }
             
             break;
     }
@@ -232,12 +232,12 @@ const bird = {
 
  //game over
  const gameOver = {
-    sX : 175, 
+    sX : 192, 
     sY : 228,
-    w : 225,
-    h : 202,
-    x : cWidth/2 - 225/2,
-    y : 90,
+    w : 192,
+    h : 42, //202
+    x : cWidth/2 - 192/2,
+    y : cHeight/2 - 42/2,
         
    draw : function(){
       if (state.current ==  state.over) {
@@ -259,7 +259,7 @@ const pipes={
         sY : 0
     },
     w : 53,
-    h : 400,
+    h : 400, //400
     gap: 125,
     maxYPos : -150,
     dx : 5,
@@ -336,22 +336,24 @@ const score = {
     best : parseInt(localStorage.getItem("best")) || 0,
     value : 0,
     draw : function(){
-        ctx.fillStyle = "#fff";
+        ctx.fillStyle = "yellow";
         ctx.strokeStyle = "#000";
         if (state.current == state.game) {
             ctx.font = "15px Verdana";
-            ctx.fillText("Score : "+this.value, cWidth/2, 50);
-            ctx.strokeText("Score : "+this.value, cWidth/2, 50);
+            ctx.fillText("Score : "+this.value, 20, 20);
+            ctx.strokeText("Score : "+this.value, 20, 20);
         }else if (state.current == state.over) {
+            ctx.fillStyle = "yellow";
+            ctx.strokeStyle = "#000";
            //score value
-            ctx.font = "15px Verdana";
-            ctx.fillText(this.value, cWidth/2 + 70, 186);
-            ctx.strokeText(this.value, cWidth/2 + 70, 186);
+            ctx.font = "30px Verdana";
+            ctx.fillText("Score : "+this.value, cWidth/2 - 192/2+20, cHeight/2+42);
+            ctx.strokeText("Score : "+this.value, cWidth/2 - 192/2+20, cHeight/2+42);
           
             //best score
            
-            ctx.fillText(this.best, cWidth/2 + 70, 225);
-            ctx.strokeText(this.best, cWidth/2 + 70, 225);
+            ctx.fillText("Best : "+this.best, cWidth/2 - 192/2+20, cHeight/2+42+42);
+            ctx.strokeText("Best : "+this.best, cWidth/2 - 192/2+20, cHeight/2+42+42);
         }
     },
 
@@ -363,9 +365,11 @@ const score = {
 //branding
 const kca = {
     draw : function(){
-        ctx.fillStyle = "#000";
-        ctx.font = "15px Verdana";
-        ctx.fillText("KaushikCodeArts - 2019", cWidth/2 - 50, cHeight-(fg.h/2));
+        ctx.fillStyle = "yellow";
+        ctx.strokeStyle = "#000";
+        ctx.font = "20px Verdana";
+        ctx.fillText("@KaushikCodeArts", cWidth/2 - 75, cHeight-(fg.h/2));
+        ctx.strokeText("@KaushikCodeArts", cWidth/2 - 75, cHeight-(fg.h/2));
     }
 }
 
